@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    @BindView
     TextView textView;
 
     @Override
