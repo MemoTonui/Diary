@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AE95B2">
+    android:background="#CE6D8B">
 
     <TextView
         android:id="@+id/textView"
@@ -10,17 +10,30 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/almendra_display"
         android:text="WELCOME TO COOKIE"
-        android:textColor="#F8F5F5" />
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
 
-    <TextView
-        android:id="@+id/textView2"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/pic2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
-        android:text="Your secret keeper and trusted friend!!"
-        android:textColor="#F8F5F5" />
+        android:backgroundTint="#00A5FF"
+        android:text="Sign Up" />
+
+
 </RelativeLayout>
