@@ -10,8 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
 
+
         <activity
-            android:name=".SignUp">
+            android:name=".Login"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.moringa.diary.MainActivity">
