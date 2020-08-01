@@ -3,6 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/signup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/welcome.png" />
+
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/name"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="Sign Up"
+        android:textColor="#CE6D8B"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
 
     <EditText
         android:id="@+id/name"
@@ -37,6 +59,16 @@
         android:layout_marginBottom="10dp"
         android:hint="Enter your age"
         android:padding="10dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#CE6D8B"
+        android:text="Submit"
+        android:textColor="#F6FAF9" />
 
 
 </RelativeLayout>
