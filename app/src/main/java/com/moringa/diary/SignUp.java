@@ -12,6 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
+    StringBuilder errMsg = new StringBuilder("Unable to save. Please fix the following errors and try again.\n");
 
     @BindView (R.id.signupbutton) Button mSignupbutton;
     @BindView(R.id.name) EditText mName;
@@ -30,17 +31,18 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        if(mName == || mEmail == || mAge){
-
+        if(mName == null || mEmail == null || mAge == null){
+            errMsg.append("- Please fill in all spaces.\n");
         }
         else {
+            String name = mName.getText().toString();
+            String email = mEmail.getText().toString();
+            Intent intent = new Intent(SignUp.this,Login.class);
+            intent.putExtra("name",name);
+            intent.putExtra("email",email);
+            startActivity(intent);
 
         }
-        String name = mName.getText().toString();
-        String email = mEmail.getText().toString();
-        Intent intent = new Intent(SignUp.this,Login.class);
-        intent.putExtra("name",name);
-        intent.putExtra("email",email);
-        startActivity(intent);
+
     }
 }
