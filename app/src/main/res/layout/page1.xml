@@ -3,9 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="showDatePickerDialog"
-        android:text="Start Today" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:id="@+id/datepicker"
+        />
+
+
+    <EditText
+        android:id="@+id/feel"
+        android:layout_width="match_parent"
+        android:layout_below="@id/datepicker"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/feel"
+        android:id="@+id/feelbutton"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/feelbutton"
+        android:layout_marginTop="50dp"
+        android:id="@+id/feelings"/>
+
+
 </RelativeLayout>
