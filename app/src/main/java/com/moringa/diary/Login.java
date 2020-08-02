@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
-    @BindView(R.id.signupbutton) Button mSignupbutton;
+    @BindView(R.id.loginbutton) Button mLoginbutton;
     @BindView(R.id.name2) EditText mName2;
     @BindView(R.id.email2) EditText mEmail2;
 
@@ -27,11 +28,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.login);
         ButterKnife.bind(this);
 
-
-
-
-
-    }
+        mLoginbutton.setOnClickListener(this);
+            }
 
     @Override
     public void onClick(View view) {
@@ -43,8 +41,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         }
         else{
+            String name2 = mName2.getText().toString();
             Intent intent1 = new Intent(Login.this,Page1.class);
-           startActivity(intent);
+            Toast.makeText(Login.this, "Hi "+name2 +" !! You have successfully Logged in", Toast.LENGTH_LONG).show();
+           startActivity(intent1);
         }
 
     }
