@@ -31,7 +31,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="0dp"
-        android:backgroundTint="#CE6D8B"
+        android:backgroundTint="#03DAC5"
         android:text="Click Here to get started"
         android:textColor="#FFFFFF" />
 

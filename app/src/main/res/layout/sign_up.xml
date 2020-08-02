@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="#CE6D8B"
+        android:backgroundTint="#03DAC5"
         android:text="Sign Up"
         android:textColor="#F6FAF9" />
 

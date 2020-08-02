@@ -33,14 +33,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent intent = getIntent();
+      /*  Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String email = intent.getStringExtra("email");
 
         if( name != mName2.getText().toString() || email != mEmail2.getText().toString()){
 
         }
-        else{
+        else{*/
             String name2 = mName2.getText().toString();
             Intent intent1 = new Intent(Login.this,Page1.class);
             Toast.makeText(Login.this, "Hi "+name2 +" !! You have successfully Logged in", Toast.LENGTH_LONG).show();
@@ -48,5 +48,5 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
 
     }
-}
+
 

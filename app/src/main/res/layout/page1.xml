@@ -3,12 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="266dp" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

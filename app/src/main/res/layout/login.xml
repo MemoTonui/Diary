@@ -14,7 +14,7 @@
         android:layout_marginTop="105dp"
         android:letterSpacing="0.2"
         android:text="Login"
-        android:textColor="#CE6D8B"
+        android:textColor="#03DAC5"
         android:textSize="50dp"
         android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
         android:layout_below="@id/email2"
        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="#CE6D8B"
+        android:backgroundTint="#03DAC5"
         android:text="Login"
         android:textColor="#F6FAF9" />
 </RelativeLayout>
