@@ -4,11 +4,17 @@
     android:layout_height="match_parent">
 
 
+    <View
+        android:layout_height="1dp"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/calendarView2"
+        android:background="#000000"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
+        android:layout_below="@id/calendarView2"
+        android:layout_marginTop="10dp"
         android:id="@+id/datepicker"
         />
 
@@ -16,23 +22,37 @@
     <EditText
         android:id="@+id/feel"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/datepicker"
         android:layout_marginTop="50dp"
-        android:layout_height="wrap_content" />
+       android:layout_margin="10dp"
+        android:fontFamily="@font/advent_pro"
+        android:hint="Tell me about your day :D !" />
 
     <Button
+        android:id="@+id/feelbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/feel"
-        android:id="@+id/feelbutton"
-        />
+        android:background="#E37A9E"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/advent_pro"
+        android:text="Enter"
+        android:textColor="#FFFFFF" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/feelbutton"
         android:layout_marginTop="50dp"
         android:id="@+id/feelings"/>
+
+    <CalendarView
+        android:id="@+id/calendarView2"
+        android:layout_width="match_parent"
+        android:layout_height="261dp"
+        android:layout_alignParentTop="true" />
 
 
 </RelativeLayout>

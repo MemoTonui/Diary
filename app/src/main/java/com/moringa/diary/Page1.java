@@ -36,6 +36,7 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view) {
         String feel = mFeel.getText().toString();
         mFeelings.setText(feel);
+
     }
     /* public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();

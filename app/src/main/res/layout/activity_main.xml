@@ -32,6 +32,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="0dp"
         android:backgroundTint="#03DAC5"
+        android:fontFamily="@font/advent_pro"
         android:text="Click Here to get started"
         android:textColor="#FFFFFF" />
 
