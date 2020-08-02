@@ -29,11 +29,18 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+        if(mName == || mEmail == || mAge){
+
+        }
+        else {
+
+        }
         String name = mName.getText().toString();
         String email = mEmail.getText().toString();
         Intent intent = new Intent(SignUp.this,Login.class);
         intent.putExtra("name",name);
-        intent.putExtra("name",name);
+        intent.putExtra("email",email);
         startActivity(intent);
     }
 }

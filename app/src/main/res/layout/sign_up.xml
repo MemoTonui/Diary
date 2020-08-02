@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#B4BCFC">
-
-    <TextView
-        android:id="@+id/signup"
-        android:layout_width="210dp"
-        android:layout_height="110dp"
-        android:layout_above="@id/name"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="26dp"
-        android:text="Sign Up"
-        android:textColor="#CE6D8B"
-        android:textSize="50dp"
-        android:textStyle="bold" />
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/name"
@@ -59,16 +44,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:backgroundTint="#CE6D8B"
-        android:text="Submit"
+        android:text="Sign Up"
         android:textColor="#F6FAF9" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="367dp"
-        android:layout_above="@id/signup"
+        android:layout_height="233dp"
+        android:layout_above="@id/name"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="-187dp"
+        android:layout_marginBottom="83dp"
         android:src="@drawable/welcome" />
 
 
