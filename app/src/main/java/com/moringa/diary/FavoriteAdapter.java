@@ -12,8 +12,8 @@ public class FavoriteAdapter extends ArrayAdapter {
     private String[] mLocation;
 
 
-    public FavoriteAdapter( Context context, int resource, Context mContext, String[] mPlace, String[] mLocation) {
-        super(context, resource);
+    public FavoriteAdapter( Context mcontext, int resource,  String[] mPlace, String[] mLocation) {
+        super(mcontext, resource);
         this.mContext = mContext;
         this.mPlace = mPlace;
         this.mLocation = mLocation;

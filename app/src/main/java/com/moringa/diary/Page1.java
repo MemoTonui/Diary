@@ -33,6 +33,16 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
             DialogFragment newFragment = new DatePickerFragment();
             newFragment.show(getSupportFragmentManager(), "datePicker");
             mFeelbutton.setOnClickListener(this);
+            mFavorite.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Page1.this,favourite.class);
+                    startActivity(intent);
+
+                }
+
+
+            });
     }
 
     @Override
@@ -43,8 +53,7 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
         mFeel.getText().clear();
 
         //Move to next page
-        Intent intent = new Intent(Page1.this,favourite.class);
-        startActivity(intent);
+
 
 
 
