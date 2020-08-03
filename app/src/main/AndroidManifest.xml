@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
         <activity
+            android:name=".favourite"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringa.diary.Page1">
+            </meta-data>
+        </activity>
+        <activity
             android:name=".Page1"
             android:theme="@style/AppTheme">
             <meta-data

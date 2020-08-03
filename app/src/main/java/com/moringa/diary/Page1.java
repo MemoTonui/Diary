@@ -1,5 +1,6 @@
 package com.moringa.diary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +17,9 @@ import butterknife.ButterKnife;
 public class Page1 extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.datepicker) TextView mDatepicker;
     @BindView(R.id.feel) EditText mFeel;
-    @BindView(R.id.feelings) CardView mFeelings;
+    @BindView(R.id.feelings) TextView mFeelings;
     @BindView(R.id.feelbutton) Button mFeelbutton;
+    @BindView(R.id.favorite) Button mFavorite;
 
 
 
@@ -30,17 +32,25 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
        //Displays the date picker once the activity is created
             DialogFragment newFragment = new DatePickerFragment();
             newFragment.show(getSupportFragmentManager(), "datePicker");
-
             mFeelbutton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
+        //Add to the how you feel text view
         String feel = mFeel.getText().toString();
-        mFeelings.setContentPadding(3,3,3,3);
-        mFeelings.p
+        mFeelings.append("\n" +feel);
         mFeel.getText().clear();
+
+        //Move to next page
+        Intent intent = new Intent(Page1.this,favourite.class);
+        startActivity(intent);
+
+
+
     }
+
+
     /* public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
