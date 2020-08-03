@@ -32,7 +32,10 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
        //Displays the date picker once the activity is created
             DialogFragment newFragment = new DatePickerFragment();
             newFragment.show(getSupportFragmentManager(), "datePicker");
+
             mFeelbutton.setOnClickListener(this);
+
+            //Goes to Favorite.xml
             mFavorite.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {

@@ -1,12 +1,15 @@
 package com.moringa.diary;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class favourite extends AppCompatActivity {
     @BindView(R.id.locationTextView) TextView mLocationTextView;
@@ -20,7 +23,11 @@ public class favourite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorite);
-        FavoriteAdapter adapter = new FavoriteAdapter(this, android.R.layout.simple_list_item_1, place, location); // must match constructor!
+        ButterKnife.bind(this);
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/Fragmentcore.otf");
+
+        FavoriteAdapter adapter = new FavoriteAdapter(this, android.R.layout.simple_list_item_1, place, location,typeface);
         mListView.setAdapter(adapter);
 
     }

@@ -24,10 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/datepicker"
-        android:layout_marginTop="50dp"
-       android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/advent_pro"
-        android:hint="Tell me about your day :D !" />
+        android:hint="Tell me about your day :D !"
+        />
 
     <Button
         android:id="@+id/feelbutton"
@@ -52,19 +55,23 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/feelbutton"
+        android:layout_marginLeft="100dp"
+        android:padding="10dp"
         android:id="@+id/feelings"
-        android:layout_marginTop="50dp"
+        android:fontFamily="@font/advent_pro"
+        android:layout_marginTop="20dp"
         />
 
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/feelbutton"
-        android:text="View my favorite places"
-        android:background="@color/colorAccent"
         android:id="@+id/favorite"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/advent_pro"
+        android:text="View my favorite places"
+        android:textColor="#FFFFFF" />
 
 
 </RelativeLayout>
