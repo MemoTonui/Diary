@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.DialogFragment;
 
 import butterknife.BindView;
@@ -15,8 +16,10 @@ import butterknife.ButterKnife;
 public class Page1 extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.datepicker) TextView mDatepicker;
     @BindView(R.id.feel) EditText mFeel;
-    @BindView(R.id.feelings) TextView mFeelings;
+    @BindView(R.id.feelings) CardView mFeelings;
     @BindView(R.id.feelbutton) Button mFeelbutton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +32,14 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
             newFragment.show(getSupportFragmentManager(), "datePicker");
 
             mFeelbutton.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View view) {
         String feel = mFeel.getText().toString();
-        mFeelings.setText(feel);
-
+        mFeelings.setContentPadding(3,3,3,3);
+        mFeelings.p
+        mFeel.getText().clear();
     }
     /* public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();

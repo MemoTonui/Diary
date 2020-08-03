@@ -40,19 +40,29 @@
         android:text="Enter"
         android:textColor="#FFFFFF" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/feelbutton"
-        android:layout_marginTop="50dp"
-        android:id="@+id/feelings"/>
 
     <CalendarView
         android:id="@+id/calendarView2"
         android:layout_width="match_parent"
         android:layout_height="261dp"
         android:layout_alignParentTop="true" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/feelbutton"
+        android:id="@+id/feelings"
+        android:layout_marginTop="50dp"
+        
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/feelbutton"
+        android:text="View my favorite places"
+        android:background="@color/colorAccent"
+        />
 
 
 </RelativeLayout>
