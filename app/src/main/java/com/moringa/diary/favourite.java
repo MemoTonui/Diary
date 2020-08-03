@@ -2,7 +2,6 @@ package com.moringa.diary;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +24,7 @@ public class favourite extends AppCompatActivity {
         setContentView(R.layout.favorite);
         ButterKnife.bind(this);
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/Fragmentcore.otf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/fragmentcore.otf");
 
         FavoriteAdapter adapter = new FavoriteAdapter(this, android.R.layout.simple_list_item_1, place, location,typeface);
         mListView.setAdapter(adapter);
