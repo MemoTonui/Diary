@@ -20,3 +20,5 @@ Linda Tonui
 - Connect the application to an emulator
 - Click the run button
 
+## License
+This project is licensed under the MIT License
