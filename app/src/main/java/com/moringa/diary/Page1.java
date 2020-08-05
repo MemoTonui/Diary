@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.DialogFragment;
@@ -20,6 +22,8 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.feelings) TextView mFeelings;
     @BindView(R.id.feelbutton) Button mFeelbutton;
     @BindView(R.id.favorite) Button mFavorite;
+    @BindView(R.id.feelsHead) TextView mFeelsHead;
+    @BindView(R.id.calendarView2) CalendarView mCalendarView2;
 
 
 
@@ -41,11 +45,19 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
                 public void onClick(View view) {
                     Intent intent = new Intent(Page1.this,favourite.class);
                     startActivity(intent);
-
                 }
 
 
             });
+
+            mCalendarView2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                @Override
+                public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
+                    String date = day + "/"+ (month+1) + "/" + year;
+                    mFeelsHead.setText(date);
+                }
+            });
+
     }
 
     @Override
