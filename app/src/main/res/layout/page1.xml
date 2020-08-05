@@ -51,7 +51,7 @@
         android:id="@+id/feelsHead"
         android:fontFamily="@font/advent_pro"
         android:layout_below="@id/feelbutton"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -60,9 +60,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="30dp"
         android:layout_below="@id/feelsHead"
-        android:padding="10dp"
+        android:textSize="16sp"
         android:id="@+id/feelings"
         android:fontFamily="@font/advent_pro"
         />
