@@ -4,18 +4,17 @@
     android:layout_height="match_parent">
 
 
-
     <TextView
         android:id="@+id/login"
         android:layout_width="189dp"
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/advent_pro"
         android:letterSpacing="0.2"
         android:text="Login"
-        android:textColor="@color/colorAccent"
-        android:fontFamily="@font/advent_pro"
+        android:layout_centerHorizontal="true"
+        android:textColor="#595858"
         android:textSize="50dp"
         android:textStyle="bold" />
 
@@ -63,5 +62,6 @@
         android:fontFamily="@font/advent_pro"
         android:backgroundTint="@color/colorAccent"
         android:text="Login"
+
         android:textColor="#F6FAF9" />
 </RelativeLayout>
