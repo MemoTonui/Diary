@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:animateLayoutChanges="true"
-    android:clickable="true">
+    android:clickable="true"
+    android:orientation="vertical">
 
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/datepicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/calendarView2"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/colorAccent" />
+        android:backgroundTint="@color/colorAccent" />-->
 
 
     <CalendarView
@@ -20,7 +22,23 @@
         android:layout_width="match_parent"
         android:layout_height="323dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="36dp" />
+        android:layout_marginTop="28dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="184dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="79dp"
+        android:background="@color/colorAccent"
+        app:backgroundTint="@color/colorAccent"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/plus" />
 
     <TextView
         android:id="@+id/feelsHead"
@@ -36,22 +54,29 @@
     <Button
         android:id="@+id/favorite"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent"
         android:fontFamily="@font/advent_pro"
         android:text="View my favorite places"
         android:textColor="#FFFFFF" />
 
-    <ImageView
-        android:id="@+id/plus"
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/favorite"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="82dp"
-        android:src="@drawable/rename" />
+        android:layout_below="@id/calendarView2"
+        android:layout_marginTop="97dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/advent_pro"
+            android:id="@+id/cardText"/>
+    </com.google.android.material.card.MaterialCardView>
 
 
-</RelativeLayout>
+</LinearLayout>

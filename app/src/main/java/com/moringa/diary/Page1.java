@@ -1,7 +1,9 @@
 package com.moringa.diary;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -13,14 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.DialogFragment;
 
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Page1 extends AppCompatActivity  {
-    @BindView(R.id.datepicker) TextView mDatepicker;
+public class Page1 extends AppCompatActivity implements View.OnClickListener  {
     @BindView(R.id.favorite) Button mFavorite;
     @BindView(R.id.feelsHead) TextView mFeelsHead;
     @BindView(R.id.calendarView2) CalendarView mCalendarView2;
+    @BindView(R.id.fab) FloatingActionButton fab;
+    @BindView(R.id.card) MaterialCardView mCard;
+    @BindView(R.id.cardText) TextView mCardText;
 
 
 
@@ -34,7 +41,8 @@ public class Page1 extends AppCompatActivity  {
             DialogFragment newFragment = new DatePickerFragment();
             newFragment.show(getSupportFragmentManager(), "datePicker");
 
-         //   mFeelbutton.setOnClickListener(this);
+        //Gets intent from the Mood page activity
+
 
             //Goes to Favorite.xml
             mFavorite.setOnClickListener(new View.OnClickListener(){
@@ -47,29 +55,45 @@ public class Page1 extends AppCompatActivity  {
 
             });
 
+            //Takes the date and passes it to the Mood page activity
+
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
             mCalendarView2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
                 public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
-                    String date = day + "/"+ (month+1) + "/" + year;
-                    mFeelsHead.setText(date);
+                    String date = day + "-"+ (month+1) + "-" + year;
+                    Intent intent = new Intent(Page1.this, MoodPage.class);
+                    intent.putExtra("date",date );
+                    startActivity(intent);
+
                 }
             });
+                }
+            });
+        Intent intent = getIntent();
+        intent.getStringExtra("mood");
+        intent.getStringExtra("description");
 
     }
 
-  /*  @Override
+    @Override
     public void onClick(View view) {
-        //Add to the how you feel text view
-        String feel = mFeel.getText().toString();
-        mFeelings.append("\n" +feel);
-        mFeel.getText().clear();*/
-
-        //Move to next page
-
-
-
-
+        //Gets intent from the Mood page activity
+       /* Intent intent = getIntent();
+        intent.getStringExtra("mood");
+        intent.getStringExtra("description");
+        mCardText.setText((CharSequence) intent);*/
     }
+}
+
+
+
+
+
+
 
 
     /* public void showDatePickerDialog(View v) {
