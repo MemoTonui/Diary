@@ -16,11 +16,8 @@ import androidx.fragment.app.DialogFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Page1 extends AppCompatActivity implements View.OnClickListener {
+public class Page1 extends AppCompatActivity  {
     @BindView(R.id.datepicker) TextView mDatepicker;
-    @BindView(R.id.feel) EditText mFeel;
-    @BindView(R.id.feelings) TextView mFeelings;
-    @BindView(R.id.feelbutton) Button mFeelbutton;
     @BindView(R.id.favorite) Button mFavorite;
     @BindView(R.id.feelsHead) TextView mFeelsHead;
     @BindView(R.id.calendarView2) CalendarView mCalendarView2;
@@ -37,7 +34,7 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
             DialogFragment newFragment = new DatePickerFragment();
             newFragment.show(getSupportFragmentManager(), "datePicker");
 
-            mFeelbutton.setOnClickListener(this);
+         //   mFeelbutton.setOnClickListener(this);
 
             //Goes to Favorite.xml
             mFavorite.setOnClickListener(new View.OnClickListener(){
@@ -60,12 +57,12 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    @Override
+  /*  @Override
     public void onClick(View view) {
         //Add to the how you feel text view
         String feel = mFeel.getText().toString();
         mFeelings.append("\n" +feel);
-        mFeel.getText().clear();
+        mFeel.getText().clear();*/
 
         //Move to next page
 
@@ -80,4 +77,4 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener {
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }*/
 
-}
+

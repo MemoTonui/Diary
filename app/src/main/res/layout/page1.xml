@@ -1,71 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:clickable="true">
 
 
     <TextView
+        android:id="@+id/datepicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/calendarView2"
         android:layout_marginTop="10dp"
-        android:id="@+id/datepicker"
-        />
-
-
-    <EditText
-        android:id="@+id/feel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/datepicker"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/advent_pro"
-        android:hint="Tell me about your day :D !"
-        />
-
-    <Button
-        android:id="@+id/feelbutton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/feel"
-        android:background="#E37A9E"
-        android:layout_margin="10dp"
-        android:fontFamily="@font/advent_pro"
-        android:text="Enter"
-        android:textColor="#FFFFFF" />
+        android:backgroundTint="@color/colorAccent" />
 
 
     <CalendarView
         android:id="@+id/calendarView2"
         android:layout_width="match_parent"
-        android:layout_height="261dp"
-        android:layout_alignParentTop="true" />
+        android:layout_height="323dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="36dp" />
 
     <TextView
+        android:id="@+id/feelsHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/feelsHead"
-        android:fontFamily="@font/advent_pro"
-        android:layout_below="@id/feelbutton"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_below="@id/feelsHead"
-        android:textSize="16sp"
-        android:id="@+id/feelings"
         android:fontFamily="@font/advent_pro"
-        />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 
     <Button
@@ -77,6 +42,16 @@
         android:fontFamily="@font/advent_pro"
         android:text="View my favorite places"
         android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/favorite"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="82dp"
+        android:src="@drawable/rename" />
 
 
 </RelativeLayout>
