@@ -17,6 +17,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,7 +27,6 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
     @BindView(R.id.feelsHead) TextView mFeelsHead;
     @BindView(R.id.calendarView2) CalendarView mCalendarView2;
     @BindView(R.id.fab) FloatingActionButton fab;
-    @BindView(R.id.card) MaterialCardView mCard;
     @BindView(R.id.cardText) TextView mCardText;
 
 
@@ -76,7 +76,7 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
         Intent intent = getIntent();
         intent.getStringExtra("mood");
         intent.getStringExtra("description");
-
+       // mCardText.setText(intent);
     }
 
     @Override
