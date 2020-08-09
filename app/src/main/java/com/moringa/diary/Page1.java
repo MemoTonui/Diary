@@ -1,23 +1,18 @@
 package com.moringa.diary;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,9 +32,11 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
         setContentView(R.layout.page1);
         ButterKnife.bind(this);
 
-       //Displays the date picker once the activity is created
-            DialogFragment newFragment = new DatePickerFragment();
-            newFragment.show(getSupportFragmentManager(), "datePicker");
+       //Displays the quote  once the activity is created
+        FragmentManager fm = getSupportFragmentManager();
+        QuoteFragment quoteDialogFragment = new QuoteFragment();
+        quoteDialogFragment.show(fm, "Quotes");
+
 
         //Gets intent from the Mood page activity
 
@@ -66,9 +63,11 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
                 public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
                     String date = day + "-"+ (month+1) + "-" + year;
                     Intent intent = new Intent(Page1.this, MoodPage.class);
+                    Intent intent1 = new Intent(Page1.this, QuoteFragment.class);
                     intent.putExtra("date",date );
+                    intent1.putExtra("date",date);
                     startActivity(intent);
-
+                    startActivity(intent1);
                 }
             });
                 }

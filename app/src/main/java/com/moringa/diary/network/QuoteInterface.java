@@ -1,4 +1,4 @@
-package com.moringa.diary;
+package com.moringa.diary.network;
 
 import com.moringa.diary.models.QuoteOfTheDay;
 
@@ -10,7 +10,7 @@ public interface QuoteInterface {
 
     @GET("/qod")
     Call<QuoteOfTheDay> getQuote(
-            @Query("quote") String quote,
-            @Query("author") String author
+            @Query("quote") String quote ,
+            @Query("date") String date
     );
 }
