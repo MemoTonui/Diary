@@ -1,39 +1,30 @@
 package com.moringa.diary;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 
-import com.moringa.diary.models.Contents;
 import com.moringa.diary.models.QuoteOfTheDay;
 import com.moringa.diary.models.Quotes;
 import com.moringa.diary.network.QuoteClient;
 import com.moringa.diary.network.QuoteInterface;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
-import static android.content.Intent.getIntent;
-import static android.content.Intent.getIntentOld;
 
 public class QuoteFragment extends DialogFragment {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
@@ -42,11 +33,10 @@ public class QuoteFragment extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         final View rootView = inflater.inflate(R.layout.quote_fragment, container, false);
         //Cancel button for the dialog
         Button cancelButton = (Button) rootView.findViewById(R.id.cancelButton);
-        TextView mQuoteContent = rootView.findViewById(R.id.quoteContent);
+       final TextView mQuoteContent = rootView.findViewById(R.id.quoteContent);
         TextView mErrorTextView = rootView.findViewById(R.id.errorTextView);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +61,10 @@ public class QuoteFragment extends DialogFragment {
             public void onResponse(Call<QuoteOfTheDay> call, Response<QuoteOfTheDay> response) {
 
                 if (response.isSuccessful()) {
-                    List<Quotes> quotesList = (List<Quotes>) response.body().getContents();
-                    String[] quotes = new String[quotesList.size()];
+                    String quotesList = String.valueOf(response.body().getContents());
+                    mQuoteContent.setText(quotesList);
+
+                 /*   String[] quotes = new String[quotesList.size()];
                     String[] author = new String[quotesList.size()];
                     String[] date = new String[quotesList.size()];
 
@@ -80,14 +72,16 @@ public class QuoteFragment extends DialogFragment {
                         quotes[i] = quotesList.get(i).getQuote();
                         author[i] = quotesList.get(i).getAuthor();
                         date[i] = quotesList.get(i).getDate();
+                        List<String[]> list=new ArrayList<>();
+                        list.add(quotes);
+                        list.add(author);
+                        list.add(date);*/
                         // mQuoteContent.append(quotes);
                         showQuote();
                     }
-                } else {
-                    showUnsuccessfulMessage();
                 }
 
-            }
+
 
             @Override
             public void onFailure(Call<QuoteOfTheDay> call, Throwable t) {
@@ -114,7 +108,7 @@ public class QuoteFragment extends DialogFragment {
 
 
     private void showQuote(){
-        mQuoteContent.setText("Here is the quote");
+        mQuoteContent.setText("");
     }
 
 }
