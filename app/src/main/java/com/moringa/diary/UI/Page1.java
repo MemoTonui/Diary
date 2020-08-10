@@ -56,13 +56,14 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
 
             //Takes the date and passes it to the Mood page activity
 
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+
 
             mCalendarView2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
-                public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
+                public void onSelectedDayChange(@NonNull CalendarView calendarView, final int year, final int month, final int day) {
+                    fab.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
                    // Passes the date to the Mood Page
                     String date = day + "-"+ (month+1) + "-" + year;
                     Intent intent = new Intent(Page1.this, MoodPage.class);
