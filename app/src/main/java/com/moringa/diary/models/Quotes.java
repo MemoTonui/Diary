@@ -1,29 +1,48 @@
 package com.moringa.diary.models;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Quotes
 {
-    private String date;
+     String date;
 
-    private String quote;
+     String quote;
 
-    private String author;
+    String author;
 
-    private String background;
+     String background;
 
-    private String length;
+     String length;
 
-    private String language;
+     String language;
 
-    private String id;
+    String id;
 
-    private String category;
+     String category;
 
-    private String permalink;
+     String permalink;
 
-    private String title;
+    String title;
 
-    private String[] tags;
+     String[] tags;
 
+    public Quotes(String date, String quote, String author, String background, String length, String language, String id, String category, String permalink, String title, String[] tags) {
+        this.date = date;
+        this.quote = quote;
+        this.author = author;
+        this.background = background;
+        this.length = length;
+        this.language = language;
+        this.id = id;
+        this.category = category;
+        this.permalink = permalink;
+        this.title = title;
+        this.tags = tags;
+    }
+    public Quotes(){
+
+    }
     public String getDate ()
     {
         return date;

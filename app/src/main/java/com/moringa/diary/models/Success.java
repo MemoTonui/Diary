@@ -3,7 +3,14 @@ package com.moringa.diary.models;
 
 public class Success
 {
-    private String total;
+   String total;
+
+    public Success(String total) {
+        this.total = total;
+    }
+    public Success(){
+
+    }
 
     public String getTotal ()
     {

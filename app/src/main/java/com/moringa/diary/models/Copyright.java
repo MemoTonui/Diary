@@ -1,10 +1,22 @@
 package com.moringa.diary.models;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Copyright
 {
-    private String year;
+     String year;
 
-    private String url;
+     String url;
+
+    public Copyright(){
+
+    }
+
+    public Copyright(String year, String url) {
+        this.year = year;
+        this.url = url;
+    }
 
     public String getYear ()
     {

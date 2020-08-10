@@ -1,9 +1,20 @@
 package com.moringa.diary.models;
 
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Contents
 {
-    private Quotes[] quotes;
+     Quotes[] quotes;
+
+    public Contents(){
+
+    }
+
+    public Contents(Quotes[] quotes) {
+        this.quotes = quotes;
+    }
 
     public Quotes[] getQuotes ()
     {

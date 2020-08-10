@@ -2,13 +2,23 @@ package com.moringa.diary.models;
 
 public class QuoteOfTheDay
 {
-    private Copyright copyright;
+     Copyright copyright;
 
-    private String baseurl;
+    String baseurl;
 
-    private Contents contents;
+    Contents contents;
 
-    private Success success;
+    Success success;
+
+    public QuoteOfTheDay(Copyright copyright, String baseurl, Contents contents, Success success) {
+        this.copyright = copyright;
+        this.baseurl = baseurl;
+        this.contents = contents;
+        this.success = success;
+    }
+    public  QuoteOfTheDay(){
+
+    }
 
     public Copyright getCopyright ()
     {
