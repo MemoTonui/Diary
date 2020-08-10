@@ -12,48 +12,48 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
         <activity
-            android:name=".MoodPage"
+            android:name=".UI.MoodPage"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.diary.Page1">
+                android:value="com.moringa.diary.UI.Page1">
             </meta-data>
         </activity>
         <activity
-            android:name=".favourite"
+            android:name=".UI.favourite"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.diary.Page1">
+                android:value="com.moringa.diary.UI.Page1">
             </meta-data>
         </activity>
         <activity
-            android:name=".Page1"
+            android:name=".UI.Page1"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.diary.Login">
+                android:value="com.moringa.diary.UI.Login">
             </meta-data>
         </activity>
 
         <activity
-            android:name=".Login"
+            android:name=".UI.Login"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.diary.MainActivity">
+                android:value="com.moringa.diary.UI.MainActivity">
             </meta-data>
         </activity>
 
         <activity
-            android:name=".SignUp"
+            android:name=".UI.SignUp"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.diary.MainActivity">
+                android:value="com.moringa.diary.UI.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".UI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

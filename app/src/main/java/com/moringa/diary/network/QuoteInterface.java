@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 public interface QuoteInterface {
 
     @GET("/qod")
-    Call<QuoteOfTheDay> getQuote(
+    Call<QuoteOfTheDay> getQuotes(
             @Query("quote") String quote ,
             @Query("date") String date
     );

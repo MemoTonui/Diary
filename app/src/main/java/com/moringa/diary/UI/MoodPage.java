@@ -1,4 +1,4 @@
-package com.moringa.diary;
+package com.moringa.diary.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.moringa.diary.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,13 +35,11 @@ public class MoodPage extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        String mood = mMood.getText().toString();
+        String mood = mMood.getText().toString().toUpperCase();
         String description = mDescription.getText().toString();
         Intent intent = new Intent(MoodPage.this,Page1.class);
         intent.putExtra("mood",mood);
         intent.putExtra("description",description);
         startActivity(intent);
-
-
     }
 }

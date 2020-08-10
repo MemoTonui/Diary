@@ -60,12 +60,24 @@
         android:text="View my favorite places"
         android:textColor="#FFFFFF" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cardText"/>
-
-
+ <TextView
+     android:id="@+id/cardText"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:fontFamily="@font/advent_pro"
+     android:layout_below="@id/calendarView2"
+     android:paddingHorizontal="20dp"
+     android:textSize="20dp"
+     android:layout_marginTop="30dp"
+     android:textStyle="bold"/>
+ <TextView
+     android:id="@+id/cardText2"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:fontFamily="@font/advent_pro"
+     android:paddingHorizontal="20dp"
+     android:layout_below="@id/cardText"
+     android:textStyle="normal"/>
 
 
 </RelativeLayout>

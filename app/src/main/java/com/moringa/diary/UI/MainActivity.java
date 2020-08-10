@@ -1,4 +1,4 @@
-package com.moringa.diary;
+package com.moringa.diary.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.moringa.diary.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

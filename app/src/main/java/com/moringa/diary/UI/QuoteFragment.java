@@ -1,4 +1,4 @@
-package com.moringa.diary;
+package com.moringa.diary.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +11,14 @@ import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 
+import com.moringa.diary.R;
 import com.moringa.diary.models.QuoteOfTheDay;
 import com.moringa.diary.models.Quotes;
 import com.moringa.diary.network.QuoteClient;
 import com.moringa.diary.network.QuoteInterface;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,13 +29,21 @@ import retrofit2.Response;
 import static android.content.ContentValues.TAG;
 
 public class QuoteFragment extends DialogFragment {
+
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.quoteContent) TextView mQuoteContent;
 
 
+    //Empty public constructor is required
+    public QuoteFragment() {
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.quote_fragment, container, false);
+
+
         //Cancel button for the dialog
         Button cancelButton = (Button) rootView.findViewById(R.id.cancelButton);
        final TextView mQuoteContent = rootView.findViewById(R.id.quoteContent);
@@ -46,23 +56,28 @@ public class QuoteFragment extends DialogFragment {
             }
         });
 
+        //To pass data to a fragment you need a bundle not an intent
+        //Get bundle from Page1
+     /*   Bundle bundle =  this.getArguments();
+        String date = bundle.getString("date");*/
 
-        //Gets date from Page1
-        Intent intent1 = getActivity().getIntent();
-        String date = intent1.getStringExtra("date");
+        Date date1 = new Date();
+        String date = date1.toString();
 
         //Making a request to the quotes api..and passing the date from the calendar to get the quote of the day
         QuoteInterface client = QuoteClient.QuoteOfTheDay.getClient();
-        Call<QuoteOfTheDay> call = client.getQuote(date, "date");
+        Call<QuoteOfTheDay> call = client.getQuotes("quote", date);
 
-//Method occurs on a different thread
-        call.enqueue(new Callback<QuoteOfTheDay>() {
+        //Method occurs on a different thread
+         call.enqueue(new Callback<QuoteOfTheDay>() {
             @Override
             public void onResponse(Call<QuoteOfTheDay> call, Response<QuoteOfTheDay> response) {
 
                 if (response.isSuccessful()) {
-                    String quotesList = String.valueOf(response.body().getContents());
-                    mQuoteContent.setText(quotesList);
+                    assert response.body() != null;
+                    String quotes = response.body().getContents().getQuotes().toString();
+                    mQuoteContent.setText(quotes);
+
 
                  /*   String[] quotes = new String[quotesList.size()];
                     String[] author = new String[quotesList.size()];
@@ -77,7 +92,7 @@ public class QuoteFragment extends DialogFragment {
                         list.add(author);
                         list.add(date);*/
                         // mQuoteContent.append(quotes);
-                        showQuote();
+                       // showQuote();
                     }
                 }
 
@@ -86,7 +101,7 @@ public class QuoteFragment extends DialogFragment {
             @Override
             public void onFailure(Call<QuoteOfTheDay> call, Throwable t) {
                 Log.e(TAG, "onFailure: ", t);
-                showFailureMessage();
+               // showFailureMessage();
             }
 
         });
@@ -102,7 +117,7 @@ public class QuoteFragment extends DialogFragment {
         }
 
         private void showUnsuccessfulMessage() {
-            mErrorTextView.setText("Something went wrong. Please try again later");
+           mErrorTextView.setText("Something went wrong. Please try again later");
             mErrorTextView.setVisibility(View.VISIBLE);
         }
 
@@ -112,4 +127,9 @@ public class QuoteFragment extends DialogFragment {
     }
 
 }
+
+//Gets date from Page1
+
+      /*  Intent intent1 = getActivity().getIntent();
+        String date = intent1.getStringExtra("date");*/
 
