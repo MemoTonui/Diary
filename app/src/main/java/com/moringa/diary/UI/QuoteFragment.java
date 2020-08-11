@@ -88,7 +88,7 @@ public class QuoteFragment extends DialogFragment {
 
                     //Catch Number Format Exception
                     try {
-                        mQuoteHead.setText(quotes[(Integer.parseInt(date))].getTitle());
+                        mQuoteHead.setText(quotes[Integer.parseInt(date)].getTitle());
                         mQuoteContent.setText(quotes[Integer.parseInt(date)].getQuote());
                     }
                     catch(NumberFormatException ex){

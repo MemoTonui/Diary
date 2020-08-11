@@ -2,9 +2,10 @@ package com.moringa.diary.models;
 
 import org.parceler.Parcel;
 
+import java.io.Serializable;
+
 @Parcel
-public class Quotes
-{
+public class Quotes  {
      String date;
 
      String quote;
