@@ -10,6 +10,7 @@
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="150dp"
+
         android:fontFamily="@font/advent_pro"
         android:letterSpacing="0.2"
         android:text="Login"
@@ -18,28 +19,30 @@
         android:textSize="50dp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/name2"
-        android:layout_width="224dp"
-        android:layout_height="59dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/advent_pro"
-        android:hint="Enter your name"
-        android:padding="10dp" />
 
     <EditText
         android:id="@+id/email2"
         android:layout_width="224dp"
         android:layout_height="59dp"
-        android:layout_below="@+id/name2"
+        android:layout_below="@+id/login"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/advent_pro"
         android:hint="Enter your email"
         android:letterSpacing="0"
+        android:padding="10dp" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="224dp"
+        android:layout_height="59dp"
+        android:layout_below="@+id/email2"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/advent_pro"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:padding="10dp" />
 
     <TextView
@@ -57,11 +60,26 @@
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/email2"
-       android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/advent_pro"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="95dp"
         android:backgroundTint="@color/colorAccent"
-        android:text="Login"
 
+        android:fontFamily="@font/advent_pro"
+        android:text="Login"
         android:textColor="#F6FAF9" />
+
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="Don't have an account? Sign up here!"
+        android:textColor="#D14D4D"
+        android:layout_below="@id/loginbutton"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:fontFamily="@font/advent_pro"
+        android:textStyle="bold" />
 </RelativeLayout>
