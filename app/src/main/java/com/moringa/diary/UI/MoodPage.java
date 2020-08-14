@@ -30,7 +30,6 @@ public class MoodPage extends AppCompatActivity implements View.OnClickListener 
         String date = intent.getStringExtra("date");
         mTextView3.setText(date);
         mTick.setOnClickListener(this);
-
     }
 
     @Override
