@@ -1,4 +1,4 @@
-package com.moringa.diary.network;
+package com.moringa.cookie.network;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,8 +12,7 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.moringa.diary.Constants.QUOTES_API_KEY;
-import static com.moringa.diary.Constants.QUOTES_BASE_URL;
+import static com.moringa.cookie.Constants.QUOTES_BASE_URL;
 
 public class QuoteClient {
 

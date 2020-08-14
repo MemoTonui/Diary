@@ -1,4 +1,4 @@
-package com.moringa.diary.UI;
+package com.moringa.cookie.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,12 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.moringa.diary.R;
-
-import java.util.Date;
+import com.moringa.cookie.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

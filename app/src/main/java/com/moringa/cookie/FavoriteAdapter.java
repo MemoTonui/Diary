@@ -1,10 +1,8 @@
-package com.moringa.diary;
+package com.moringa.cookie;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.widget.ArrayAdapter;
-
-import androidx.annotation.NonNull;
 
 public class FavoriteAdapter extends ArrayAdapter {
 

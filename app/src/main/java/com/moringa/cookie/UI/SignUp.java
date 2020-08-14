@@ -1,4 +1,4 @@
-package com.moringa.diary.UI;
+package com.moringa.cookie.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.moringa.diary.R;
+import com.moringa.cookie.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

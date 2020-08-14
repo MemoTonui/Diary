@@ -1,4 +1,4 @@
-package com.moringa.diary.models;
+package com.moringa.cookie.models;
 
 
 import org.parceler.Parcel;

@@ -1,8 +1,6 @@
-package com.moringa.diary.network;
+package com.moringa.cookie.network;
 
-import com.moringa.diary.models.QuoteOfTheDay;
-
-import java.util.Date;
+import com.moringa.cookie.models.QuoteOfTheDay;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

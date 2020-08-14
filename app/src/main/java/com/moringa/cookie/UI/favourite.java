@@ -1,4 +1,4 @@
-package com.moringa.diary.UI;
+package com.moringa.cookie.UI;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.moringa.diary.FavoriteAdapter;
-import com.moringa.diary.R;
+import com.moringa.cookie.FavoriteAdapter;
+import com.moringa.cookie.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
