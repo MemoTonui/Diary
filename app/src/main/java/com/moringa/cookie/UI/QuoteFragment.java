@@ -1,5 +1,6 @@
 package com.moringa.cookie.UI;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ import static android.content.ContentValues.TAG;
 
 public class QuoteFragment extends DialogFragment {
 
+
     @BindView(R.id.errorTextView) TextView mErrorTextView;
    // @BindView(R.id.quoteContent) TextView mQuoteContent;
 
@@ -44,7 +46,6 @@ public class QuoteFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.quote_fragment, container, false);
-
 
         //Cancel button for the dialog
         Button cancelButton = (Button) rootView.findViewById(R.id.cancelButton);
@@ -124,7 +125,6 @@ public class QuoteFragment extends DialogFragment {
          //  mErrorTextView.setText("Something went wrong. Please try again later");
             //mErrorTextView.setVisibility(View.VISIBLE);
         }
-
 
   /*  private void showQuote(){
         mQuoteContent.setText();
