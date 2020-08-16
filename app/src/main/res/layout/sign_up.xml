@@ -97,6 +97,7 @@
         android:fontFamily="@font/advent_pro"
         android:text="Already have an account? Log in here!"
         android:layout_marginLeft="20dp"
+        android:clickable="true"
         android:textColor="#D14D4D"
         android:textStyle="bold" />
 

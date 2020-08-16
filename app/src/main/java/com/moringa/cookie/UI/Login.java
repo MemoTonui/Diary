@@ -70,10 +70,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             loginWithPassword();
          }
 
-
-            Intent intent1 = new Intent(Login.this, Page1.class);
-           //
-            startActivity(intent1);
         }
 
 
