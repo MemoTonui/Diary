@@ -1,5 +1,6 @@
 package com.moringa.cookie.UI;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SyncStatusObserver;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
     StringBuilder errMsg = new StringBuilder("Unable to save. Please fix the following errors and try again.\n");
 
     @BindView (R.id.signupbutton) Button mSignupbutton;
@@ -47,10 +49,16 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
 
         createAuthStateListener();
-
+        createAuthProgressDialog();
         mSignupbutton.setOnClickListener(this);
     }
 
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Registering  User...");
+        mAuthProgressDialog.setCancelable(false);
+    }
     private  void createNewUser(){
         ///Get the details from the edit texts and use trim() to remove white spaces
         String name = mName.getText().toString().trim();
@@ -59,10 +67,12 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         String confirmPassword = mConfirmPassword.getText().toString().trim();
 
         //Create a User in firebase with their email and password
+        mAuthProgressDialog.show();
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                mAuthProgressDialog.dismiss();
                 //If task is successful, show a toast indicating sign up is successful
                 if (task.isSuccessful()){
                     System.out.println("SUCCEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESSSS");
@@ -86,7 +96,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if(user != null){
                     Toast.makeText(SignUp.this,"REGISTRATION SUCCESSFUL ;",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(SignUp.this,Login.class);
+                    Intent intent = new Intent(SignUp.this,Page1.class);
                     startActivity(intent);
                     finish();
                 }
@@ -119,19 +129,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
-
-       /* if(mName == null || mEmail == null ){
-            errMsg.append("- Please fill in all spaces.\n");
         }
-        else {
-            String name = mName.getText().toString();
-            String email = mEmail.getText().toString();
-            Intent intent = new Intent(SignUp.this,Login.class);
-            intent.putExtra("name",name);
-            intent.putExtra("email",email);
-            startActivity(intent);*/
+
+        if (view == mSignupbutton){
+            createNewUser();
+        }
 
         }
 
     }
-}
+
