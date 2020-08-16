@@ -53,6 +53,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         createAuthStateListener();
         createAuthProgressDialog();
         mSignupbutton.setOnClickListener(this);
+        mLoginTextView.setOnClickListener(this);
     }
 
     private void createAuthProgressDialog() {

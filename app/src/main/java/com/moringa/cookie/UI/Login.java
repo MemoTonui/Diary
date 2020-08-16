@@ -45,6 +45,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         mAuth = FirebaseAuth.getInstance();
         mLoginbutton.setOnClickListener(this);
+        mRegisterTextView.setOnClickListener(this);
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -93,7 +94,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         Toast.makeText(Login.this, "Hi  !! You have successfully Logged in", Toast.LENGTH_LONG).show();
                     }
                     else {
-                        Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, "Login Failed..Please enter correct details.", Toast.LENGTH_LONG).show();
                     }
 
                 }
