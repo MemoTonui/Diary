@@ -1,4 +1,4 @@
-package com.moringa.diary.UI;
+package com.moringa.cookie.UI;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.moringa.diary.FavoriteAdapter;
-import com.moringa.diary.R;
+import com.moringa.cookie.FavoriteAdapter;
+import com.moringa.cookie.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,6 +16,8 @@ import butterknife.ButterKnife;
 public class favourite extends AppCompatActivity {
     @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.listView) ListView mListView;
+
+    //List for favorite places
 
     private String[] place = new String[] {"Roasters", "Junction Mall", "Green House", "Diani Beach", "The Carnivore", "Olepolos", "The Hub", "Finix", " Nairobi Safari Walk", "Village Market", "Paradise Lost" };
     private String[] location = new String[] {"Thika Road", "Ngong Road", "Adams", "Mombasa", "Langata Road", "Kiserian", "Karen", "Argwings Kodhek Road", "Nairobi", "Limuru Road,Gigiri", "Kiambu" };

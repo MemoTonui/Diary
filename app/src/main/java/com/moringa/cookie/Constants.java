@@ -1,4 +1,4 @@
-package com.moringa.diary;
+package com.moringa.cookie;
 
 
     public class Constants {

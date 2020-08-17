@@ -1,29 +1,24 @@
-package com.moringa.diary.UI;
+package com.moringa.cookie.UI;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.TestLooperManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 
-import com.moringa.diary.R;
-import com.moringa.diary.models.QuoteOfTheDay;
-import com.moringa.diary.models.Quotes;
-import com.moringa.diary.network.QuoteClient;
-import com.moringa.diary.network.QuoteInterface;
+import com.moringa.cookie.R;
+import com.moringa.cookie.models.QuoteOfTheDay;
+import com.moringa.cookie.models.Quotes;
+import com.moringa.cookie.network.QuoteClient;
+import com.moringa.cookie.network.QuoteInterface;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 import java.util.Date;
-import java.util.List;
 
 import butterknife.BindView;
 import retrofit2.Call;
@@ -39,6 +34,7 @@ public class QuoteFragment extends DialogFragment {
 
     TextView mQuoteContent;
     TextView mQuoteHead;
+    TextView mQuoteAuthor;
 
     //Empty public constructor is required
     public QuoteFragment() {
@@ -63,7 +59,8 @@ public class QuoteFragment extends DialogFragment {
         //Defining
         mQuoteContent = rootView.findViewById(R.id.quoteContent);
         TextView mErrorTextView = rootView.findViewById(R.id.errorTextView);
-        mQuoteContent = rootView.findViewById(R.id.quoteHead);
+        mQuoteHead = rootView.findViewById(R.id.quoteHead);
+        mQuoteAuthor = rootView.findViewById(R.id.quoteAuthor);
 
 
         //Create a date object to pass the current date
@@ -86,15 +83,21 @@ public class QuoteFragment extends DialogFragment {
                     Quotes[] quotes = response.body().getContents().getQuotes();
                     System.out.println("Connection Successful");
 
+                    for(Quotes q:quotes){
+                        mQuoteHead.setText(q.getTitle());
+                        mQuoteContent.setText(q.getQuote());
+                        mQuoteAuthor.setText(q.getAuthor());
+
+                    }
+
                     //Catch Number Format Exception
-                    try {
-                        mQuoteHead.setText(quotes[Integer.parseInt(date)].getTitle());
-                        mQuoteContent.setText(quotes[Integer.parseInt(date)].getQuote());
+                 /*   try {
+
                     }
                     catch(NumberFormatException ex){
 
                         System.out.println("Here!!!!!!!!!!!!!!!!!!!!!!!!!" + ex);
-                    }
+                    }*/
 
                 } else {
                     showUnsuccessfulMessage();

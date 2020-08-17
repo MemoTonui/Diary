@@ -1,11 +1,7 @@
-package com.moringa.diary;
+package com.moringa.cookie;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
-
-import androidx.annotation.NonNull;
-
-import com.moringa.diary.models.Contents;
 
 public class MyQuotesArrayAdapter extends ArrayAdapter {
     private Context context;
