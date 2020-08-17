@@ -37,27 +37,19 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
         setContentView(R.layout.page1);
         ButterKnife.bind(this);
 
+
        //Displays the quote  once the activity is created
         final FragmentManager fm = getSupportFragmentManager();
         final QuoteFragment quoteDialogFragment = new QuoteFragment();
         quoteDialogFragment.show(fm, "Quotes");
-        //Gets intent from the Mood page activity
 
+        //Gets intent from the Mood page activity
+        Intent intent1 = getIntent();
+        String date = intent1.getStringExtra("date");
 
             //Goes to Favorite.xml
-            mFavorite.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(Page1.this, favourite.class);
-                    startActivity(intent);
-                }
-
-
-            });
-
+            mFavorite.setOnClickListener(this);
             //Takes the date and passes it to the Mood page activity
-
-
 
             mCalendarView2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
@@ -78,7 +70,6 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
 
 
 
-
         //Gets intent from MoodPage and sets it to mCardText
         Intent intent = getIntent();
         String mood = intent.getStringExtra("mood");
@@ -89,6 +80,10 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
 
     @Override
     public void onClick(View view) {
+        if (view == mFavorite){
+            Intent intent = new Intent(Page1.this, favourite.class);
+            startActivity(intent);
+        }
         //Gets intent from the Mood page activity
        /* Intent intent = getIntent();
         intent.getStringExtra("mood");
@@ -118,17 +113,5 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
         finish();
     }
 }
-
-
-
-
-
-
-
-
-    /* public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-    }*/
 
 
