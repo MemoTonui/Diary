@@ -1,45 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
-
+    >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="35dp"
+        android:layout_gravity="center_horizontal"
         android:text="Entries"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/colorAccent"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="35dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_height="626dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="105dp"
         android:background="#ffffff"
-        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/moodDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/moodDisplay"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:text="Mood"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/descriptionDisplay"
-            android:layout_width="7dp"
-            android:layout_height="wrap_content"
+            android:layout_width="394dp"
+            android:layout_height="77dp"
             android:layout_below="@+id/moodDisplay"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:text="Description"
-            android:textStyle="italic" />
-
+            />
 
 
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

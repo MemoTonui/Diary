@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.moringa.cookie.FavoriteAdapter;
+import com.moringa.cookie.adapters.FavoriteAdapter;
 import com.moringa.cookie.R;
 
 import butterknife.BindView;

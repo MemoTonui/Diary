@@ -1,15 +1,15 @@
-package com.moringa.cookie;
+package com.moringa.cookie.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.moringa.cookie.R;
 import com.moringa.cookie.models.Entries;
 
 import java.util.List;

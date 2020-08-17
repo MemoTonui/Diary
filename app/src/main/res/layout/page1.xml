@@ -39,26 +39,17 @@
         app:fabSize="normal"
         app:srcCompat="@drawable/plus" />
 
-    <TextView
-        android:id="@+id/feelsHead"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/advent_pro"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+
+ <TextView
+     android:id="@+id/feelsHead"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginLeft="30dp"
+     android:fontFamily="@font/advent_pro"
+     android:textSize="24sp"
+     android:textStyle="bold" />
 
 
-    <Button
-        android:id="@+id/favorite"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent"
-        android:fontFamily="@font/advent_pro"
-        android:text="View my favorite places"
-        android:textColor="#FFFFFF" />
 
  <TextView
      android:id="@+id/cardText"
@@ -78,6 +69,34 @@
      android:paddingHorizontal="20dp"
      android:layout_below="@id/cardText"
      android:textStyle="normal"/>
+
+ <Button
+     android:id="@+id/view"
+     android:layout_width="161dp"
+     android:layout_height="wrap_content"
+     android:layout_alignParentStart="true"
+     android:layout_alignParentBottom="true"
+     android:layout_marginStart="24dp"
+     android:layout_marginBottom="38dp"
+     android:background="@color/colorAccent"
+     android:fontFamily="@font/advent_pro"
+     android:text="View my previous entries"
+     android:textColor="#FFFFFF" />
+
+ <Button
+     android:id="@+id/favorite"
+     android:layout_width="140dp"
+     android:layout_height="wrap_content"
+     android:layout_alignParentEnd="true"
+     android:layout_alignParentBottom="true"
+     android:layout_marginLeft="30dp"
+     android:layout_marginEnd="18dp"
+     android:layout_marginRight="50dp"
+     android:layout_marginBottom="38dp"
+     android:background="@color/colorAccent"
+     android:fontFamily="@font/advent_pro"
+     android:text="View my favorite places"
+     android:textColor="#FFFFFF" />
 
 
 </RelativeLayout>

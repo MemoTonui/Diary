@@ -16,7 +16,19 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.moringa.cookie.Constants;
 import com.moringa.cookie.R;
+import com.moringa.cookie.models.Entries;
+
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +40,7 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
     @BindView(R.id.fab) FloatingActionButton fab;
     @BindView(R.id.cardText) TextView mCardText;
     @BindView(R.id.cardText2) TextView mCardText2;
+    @BindView(R.id.view) Button mView;
 
 
 
@@ -49,6 +62,9 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
 
             //Goes to Favorite.xml
             mFavorite.setOnClickListener(this);
+
+            //Goes to entries
+        mView.setOnClickListener(this);
             //Takes the date and passes it to the Mood page activity
 
             mCalendarView2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -82,6 +98,10 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
     public void onClick(View view) {
         if (view == mFavorite){
             Intent intent = new Intent(Page1.this, favourite.class);
+            startActivity(intent);
+        }
+        if (view == mView){
+            Intent intent = new Intent(Page1.this,EntriesDisplay.class);
             startActivity(intent);
         }
         //Gets intent from the Mood page activity

@@ -20,6 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.moringa.cookie.Constants;
 import com.moringa.cookie.R;
+import com.moringa.cookie.models.Entries;
+
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,14 +40,10 @@ public class MoodPage extends AppCompatActivity implements View.OnClickListener 
    private ValueEventListener dateForEntryReferenceListener;
 
 
-    @BindView(R.id.textView3)
-    TextView mTextView3;
-    @BindView(R.id.mood)
-    TextInputEditText mMood;
-    @BindView(R.id.description)
-    TextInputEditText mDescription;
-    @BindView(R.id.tick)
-    FloatingActionButton mTick;
+    @BindView(R.id.textView3) TextView mTextView3;
+    @BindView(R.id.mood) TextInputEditText mMood;
+    @BindView(R.id.description) TextInputEditText mDescription;
+    @BindView(R.id.tick) FloatingActionButton mTick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +64,14 @@ public class MoodPage extends AppCompatActivity implements View.OnClickListener 
 
       //Creates a node entries that stores all entries base on a date..
       entries = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_CHILD_ENTRY);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        //entries = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ENTRY).child(uid);
       //Creates a node date that stores the mood
       dateForEntry = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ENTRY).child(date);
-       moodEntry = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DATE).child(mood);
+      moodEntry = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DATE).child(mood);
        // node desc that gives a description of someone's mood
-       desc = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DATE).child(description);
-
-
+        desc = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MOOD).child(description);
 
        dateForEntryReferenceListener = dateForEntry.addValueEventListener(new ValueEventListener() {
             @Override
@@ -102,6 +104,7 @@ public class MoodPage extends AppCompatActivity implements View.OnClickListener 
          //   saveDateToFirebase(date);
             saveMoodToFirebase(mood);
            saveDescriptionToFireBase(description);
+           saveToView();
 
 
             //Takes the date and displays it in Page1
@@ -112,16 +115,39 @@ public class MoodPage extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
-  /*  private  void saveDateToFirebase(String date){
-        entries.push().setValue(date);
-    }*/
-
     private void saveMoodToFirebase(String mood) {
         dateForEntry.push().setValue(mood);
     }
    private  void saveDescriptionToFireBase(String description){
         moodEntry.push().setValue(description);
     }
+
+    private void saveToView(){
+        final ArrayList<Entries> entriesList = new ArrayList<>();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ENTRY).child(uid);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    entriesList.add(snapshot.getValue(Entries.class));
+                }
+
+              //  int itemPosition = getLayoutPosition();
+                Intent intent = new Intent(MoodPage.this,EntriesDisplay.class);
+                intent.putExtra("mood",mMood.getText().toString().toUpperCase());
+                intent.putExtra("description",mDescription.getText().toString());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
