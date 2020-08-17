@@ -9,6 +9,9 @@ Linda Tonui
 - Java
 - Android Studio
 - XML
+- QuotesAPI
+- Postman
+- Gradle
 
 
 ## Bugs And Errors
