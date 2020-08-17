@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moringa.cookie">
-    <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,49 +11,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
+        <activity android:name=".UI.EntriesDisplay"></activity>
         <activity
-            android:name="com.moringa.cookie.UI.MoodPage"
+            android:name=".UI.MoodPage"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.cookie.UI.Page1">
-            </meta-data>
+                android:value="com.moringa.cookie.UI.Page1" />
         </activity>
         <activity
-            android:name="com.moringa.cookie.UI.favourite"
+            android:name=".UI.favourite"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.cookie.UI.Page1">
-            </meta-data>
+                android:value="com.moringa.cookie.UI.Page1" />
         </activity>
         <activity
-            android:name="com.moringa.cookie.UI.Page1"
+            android:name=".UI.Page1"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.cookie.UI.Login">
-            </meta-data>
+                android:value="com.moringa.cookie.UI.Login" />
         </activity>
-
         <activity
-            android:name="com.moringa.cookie.UI.Login"
+            android:name=".UI.Login"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.cookie.UI.MainActivity">
-            </meta-data>
+                android:value="com.moringa.cookie.UI.MainActivity" />
         </activity>
-
         <activity
-            android:name="com.moringa.cookie.UI.SignUp"
+            android:name=".UI.SignUp"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringa.cookie.UI.MainActivity">
-            </meta-data>
+                android:value="com.moringa.cookie.UI.MainActivity" />
         </activity>
-        <activity android:name="com.moringa.cookie.UI.MainActivity">
+        <activity android:name=".UI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

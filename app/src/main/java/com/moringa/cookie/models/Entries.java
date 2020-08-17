@@ -1,16 +1,25 @@
 package com.moringa.cookie.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Entries {
 
-    String date ;
-    String mood;
-    String description;
+    String date;
+    List<String> mood = new ArrayList<>();
+
+    List<String> description = new ArrayList<>();
+
     String pushId;
 
-    public Entries(String date, String mood, String description) {
+    public Entries(String date, List<String> mood, List<String> description) {
         this.date = date;
         this.mood = mood;
         this.description = description;
+    }
+
+    public Entries() {
+
     }
 
     public String getDate() {
@@ -21,19 +30,19 @@ public class Entries {
         this.date = date;
     }
 
-    public String getMood() {
+    public List<String> getMood() {
         return mood;
     }
 
-    public void setMood(String mood) {
+    public void setMood(List<String> mood) {
         this.mood = mood;
     }
 
-    public String getDescription() {
+    public List<String> getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(List<String> description) {
         this.description = description;
     }
 
