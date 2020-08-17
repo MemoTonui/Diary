@@ -1,22 +1,21 @@
-package com.moringa.diary;
+package com.moringa.diary.UI;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.moringa.diary.R;
+
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,8 +25,8 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
     @BindView(R.id.feelsHead) TextView mFeelsHead;
     @BindView(R.id.calendarView2) CalendarView mCalendarView2;
     @BindView(R.id.fab) FloatingActionButton fab;
-    @BindView(R.id.card) MaterialCardView mCard;
     @BindView(R.id.cardText) TextView mCardText;
+    @BindView(R.id.cardText2) TextView mCardText2;
 
 
 
@@ -37,10 +36,10 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
         setContentView(R.layout.page1);
         ButterKnife.bind(this);
 
-       //Displays the date picker once the activity is created
-            DialogFragment newFragment = new DatePickerFragment();
-            newFragment.show(getSupportFragmentManager(), "datePicker");
-
+       //Displays the quote  once the activity is created
+        final FragmentManager fm = getSupportFragmentManager();
+        final QuoteFragment quoteDialogFragment = new QuoteFragment();
+        quoteDialogFragment.show(fm, "Quotes");
         //Gets intent from the Mood page activity
 
 
@@ -48,7 +47,7 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
             mFavorite.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(Page1.this,favourite.class);
+                    Intent intent = new Intent(Page1.this, favourite.class);
                     startActivity(intent);
                 }
 
@@ -57,13 +56,15 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
 
             //Takes the date and passes it to the Mood page activity
 
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+
 
             mCalendarView2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
-                public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
+                public void onSelectedDayChange(@NonNull CalendarView calendarView, final int year, final int month, final int day) {
+                    fab.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                   // Passes the date to the Mood Page
                     String date = day + "-"+ (month+1) + "-" + year;
                     Intent intent = new Intent(Page1.this, MoodPage.class);
                     intent.putExtra("date",date );
@@ -73,10 +74,13 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
             });
                 }
             });
-        Intent intent = getIntent();
-        intent.getStringExtra("mood");
-        intent.getStringExtra("description");
 
+        //Gets intent from MoodPage and sets it to mCardText
+        Intent intent = getIntent();
+        String mood = intent.getStringExtra("mood");
+        String desc = intent.getStringExtra("description");
+        mCardText.setText(mood);
+        mCardText2.setText(desc);
     }
 
     @Override
