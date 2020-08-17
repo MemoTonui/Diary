@@ -1,4 +1,4 @@
-package com.moringa.cookie;
+package com.moringa.cookie.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

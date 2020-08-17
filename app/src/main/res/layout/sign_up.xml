@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="80dp"
    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/advent_pro"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="Create Account"
+        android:textColor="@color/colorAccent"
+        android:textSize="45sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/name"
@@ -10,8 +24,8 @@
         android:layout_height="49dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="302dp"
-        android:layout_marginEnd="86dp"
+      android:layout_marginTop="50dp"
+        android:layout_marginEnd="87dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/advent_pro"
         android:hint="Enter your name"
@@ -24,8 +38,8 @@
         android:layout_below="@+id/name"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="87dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/advent_pro"
         android:hint="Enter your email"
@@ -38,7 +52,7 @@
         android:layout_below="@+id/email"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="87dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/advent_pro"
@@ -52,7 +66,7 @@
         android:layout_below="@+id/password"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="87dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/advent_pro"
@@ -62,38 +76,38 @@
 
     <Button
         android:id="@+id/signupbutton"
-        android:layout_width="219dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_width="229dp"
+        android:layout_height="61dp"
+        android:layout_below="@id/confirmPassword"
+        android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="94dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#03DAC5"
         android:fontFamily="@font/advent_pro"
-        android:layout_marginTop="30dp"
+        android:text="Create Account"
         android:textColor="#F6FAF9" />
 
     <TextView
         android:id="@+id/loginTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="664dp"
         android:fontFamily="@font/advent_pro"
         android:text="Already have an account? Log in here!"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"
         android:textColor="#D14D4D"
-
-        android:textSize="15sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="233dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/welcome" />
+    <!--
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="393dp"
+            android:layout_height="163dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/welcome" />-->
 
 
-</RelativeLayout>
+</LinearLayout>
