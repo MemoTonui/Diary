@@ -24,6 +24,13 @@ Linda Tonui
 - Connect the application to an emulator
 - Click the run button
 
+## API SETUP
+This project utilizes the QuotesAPI from `https://theysaidso.com/api/#java` and uses the endpoint quoteOfTheDay.
+It is public thus does not require an API key but you have an option to generate it anyway.
+
+- Open your Constants class and add your base url `public static final String QUOTES_BASE_URL = "https://quotes.rest/";`
+
+ 
 ## Contributions
 In order to contribute to this project, please follow the following steps:
 - Fork the Project
