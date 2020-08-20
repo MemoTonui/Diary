@@ -68,12 +68,13 @@ public class MoodPage extends AppCompatActivity implements View.OnClickListener 
       //Creates a node date that stores the mood
         DatabaseReference pushRef = entries.push();
         String pushId = pushRef.getKey();
-        date =  FirebaseDatabase.getInstance().getReference(pushId).child(date2);
+       // entries = FirebaseDatabase.getInstance().getReference().child(pushId);
+        date =  FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ENTRY).child(date2);
      // date = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ENTRY).child(date2);
 
       mood = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DATE).child(mood2);
        // node desc that gives a description of someone's mood
-        description = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MOOD).child(description2);
+        description = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DATE).child(description2);
 
        dateForEntryReferenceListener = date.addValueEventListener(new ValueEventListener() {
             @Override
@@ -115,7 +116,7 @@ public class MoodPage extends AppCompatActivity implements View.OnClickListener 
     private void saveMoodToFirebase(String mood,String description) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
-        entries= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DATE).child(uid);
+        entries= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ENTRY).child(uid);
 
         DatabaseReference pushRef = entries.push();
         String pushId = pushRef.getKey();

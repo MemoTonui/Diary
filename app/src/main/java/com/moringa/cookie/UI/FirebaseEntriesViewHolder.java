@@ -16,26 +16,23 @@ public class FirebaseEntriesViewHolder extends RecyclerView.ViewHolder {
     TextView mDescriptionDisplay;
 
     View itemView;
-    Context mContext;
+ //   Context mContext;
     //private List<Date> entries;
 
 
     public FirebaseEntriesViewHolder(View itemView) {
         super(itemView);
-        mContext = itemView.getContext();
+      //  mContext = itemView.getContext();
+        mMoodDisplay = itemView.findViewById(R.id.moodDisplay);
+        mDescriptionDisplay = itemView.findViewById(R.id.descriptionDisplay);
+
        // this.entries = entries;
     }
 
 
     public void bindEntries(Entries entries) {
-        mMoodDisplay = itemView.findViewById(R.id.moodDisplay);
-        mDescriptionDisplay = itemView.findViewById(R.id.descriptionDisplay);
-
        mMoodDisplay.setText(entries.getMood());
-        mDescriptionDisplay.setText(entries.getDescription());
+       mDescriptionDisplay.setText(entries.getDescription());
 
     }
-    /*public int getItemCount() {
-        return entries.size();
-    }*/
 }

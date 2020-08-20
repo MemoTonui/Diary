@@ -26,7 +26,8 @@ import butterknife.ButterKnife;
 
 public class EntriesDisplay extends AppCompatActivity {
     private DatabaseReference entries;
-    private FirebaseRecyclerAdapter<Entries, FirebaseEntriesViewHolder> mEntriesViewHolder;
+    private DatabaseReference dates;
+    private FirebaseRecyclerAdapter mEntriesViewHolder;
 
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -38,41 +39,49 @@ public class EntriesDisplay extends AppCompatActivity {
         ButterKnife.bind(this);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+        final String uid = user.getUid();
+
         System.out.println(uid);
 
         entries = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ENTRY).child(uid);
-       // date = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DATE);
-             setUpFirebaseAdapter();
+       // dates = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DATE).child(uid);
+           //  setUpFirebaseAdapter();
+
+        //Query DAtabase
+        FirebaseRecyclerOptions<Entries> options = new FirebaseRecyclerOptions.Builder<Entries>()
+                .setQuery(entries, Entries.class)
+                .build();
+
+        //Recycler adapter
+        mEntriesViewHolder = new FirebaseRecyclerAdapter<Entries, FirebaseEntriesViewHolder>(options) {
+            @NonNull
+            @Override
+
+            public FirebaseEntriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.entries_list, parent, false);
+                return new FirebaseEntriesViewHolder(view);
+            }
+            @Override
+            protected void onBindViewHolder(@NonNull FirebaseEntriesViewHolder firebaseEntriesViewHolder, int position, @NonNull Entries entries) {
+                // firebaseEntriesViewHolder.mMoodDisplay.setText(date.getMood());
+                System.out.println(entries.getDate());
+              //  firebaseEntriesViewHolder.mMoodDisplay.setText("ADOLUJKCSCSUJ");
+
+               firebaseEntriesViewHolder.mDescriptionDisplay.setText(entries.getMood());
+               // firebaseEntriesViewHolder.bindEntries(entries);
+
+            }
+        };
+
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mEntriesViewHolder);
+
     }
 
-        private void setUpFirebaseAdapter(){
-            FirebaseRecyclerOptions<Entries> options = new FirebaseRecyclerOptions.Builder<Entries>()
-                            .setQuery(entries,Entries.class)
-                            .build();
 
-            //Recycler adapter
-            mEntriesViewHolder = new FirebaseRecyclerAdapter<Entries, FirebaseEntriesViewHolder>(options) {
-                @Override
-                protected void onBindViewHolder(@NonNull FirebaseEntriesViewHolder firebaseEntriesViewHolder, int position, Entries entries) {
-                    //firebaseEntriesViewHolder.mMoodDisplay.setText(date.getMood());
-                  // firebaseEntriesViewHolder.mDescriptionDisplay.setText(entries.getDescription());
-                  firebaseEntriesViewHolder.bindEntries(entries);
-                  System.out.println(entries);
-                }
-                @NonNull
-                @Override
 
-                public FirebaseEntriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.entries_list, parent, false);
-                    return new FirebaseEntriesViewHolder(view);
-                }
-            };
-
-            mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            mRecyclerView.setAdapter(mEntriesViewHolder);
-            mRecyclerView.setHasFixedSize(false);
-        }
 
        @Override
         protected void onStart() {
@@ -82,8 +91,6 @@ public class EntriesDisplay extends AppCompatActivity {
         @Override
         protected void onStop() {
             super.onStop();
-            if(mEntriesViewHolder!= null) {
                 mEntriesViewHolder.stopListening();
-            }
         }
 }

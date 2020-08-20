@@ -8,6 +8,7 @@ import org.parceler.Parcel;
 public class Dates {
     private String mood;
     private String description;
+    private String pushId;
 
     public Dates(String mood, String description) {
         this.mood = mood;
@@ -16,6 +17,15 @@ public class Dates {
     public Dates(){
 
     }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
+
     public String getMood() {
         return mood;
     }
@@ -31,4 +41,6 @@ public class Dates {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }
