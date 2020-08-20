@@ -16,19 +16,9 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.moringa.cookie.Constants;
+import com.google.firebase.auth.FirebaseUser;
 import com.moringa.cookie.R;
 import com.moringa.cookie.models.Entries;
-
-import org.parceler.Parcels;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,7 +31,7 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
     @BindView(R.id.cardText) TextView mCardText;
     @BindView(R.id.cardText2) TextView mCardText2;
     @BindView(R.id.view) Button mView;
-
+    @BindView(R.id.name) TextView mName;
 
 
     @Override
@@ -50,48 +40,43 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
         setContentView(R.layout.page1);
         ButterKnife.bind(this);
 
-
-       //Displays the quote  once the activity is created
+        //Displays the quote  once the activity is created
         final FragmentManager fm = getSupportFragmentManager();
         final QuoteFragment quoteDialogFragment = new QuoteFragment();
         quoteDialogFragment.show(fm, "Quotes");
+
+
+        FirebaseUser myUser = FirebaseAuth.getInstance().getCurrentUser();
+        String userName = myUser.getDisplayName();
+        mName.setText("Hi " + userName + " Please pick a date to continue :)");
 
         //Gets intent from the Mood page activity
         Intent intent1 = getIntent();
         String date = intent1.getStringExtra("date");
 
-            //Goes to Favorite.xml
-            mFavorite.setOnClickListener(this);
+        //Goes to Favorite.xml
+        mFavorite.setOnClickListener(this);
 
-            //Goes to entries
+        //Goes to entries
         mView.setOnClickListener(this);
-            //Takes the date and passes it to the Mood page activity
+        //Takes the date and passes it to the Mood page activity
 
-            mCalendarView2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                @Override
-                public void onSelectedDayChange(@NonNull CalendarView calendarView, final int year, final int month, final int day) {
-                    fab.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                   // Passes the date to the Mood Page
-                    String date = day + "-"+ (month+1) + "-" + year;
-                    Intent intent = new Intent(Page1.this, MoodPage.class);
-                    intent.putExtra("date",date );
-                    startActivity(intent);
+        mCalendarView2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, final int year, final int month, final int day) {
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Passes the date to the Mood Page
+                        String date = day + "-" + (month + 1) + "-" + year;
+                        Intent intent = new Intent(Page1.this, MoodPage.class);
+                        intent.putExtra("date", date);
+                        startActivity(intent);
 
-                }
-            });
-                }
-            });
-
-
-
-        //Gets intent from MoodPage and sets it to mCardText
-        Intent intent = getIntent();
-        String mood = intent.getStringExtra("mood");
-        String desc = intent.getStringExtra("description");
-        mCardText.setText(mood);
-        mCardText2.setText(desc);
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -104,11 +89,7 @@ public class Page1 extends AppCompatActivity implements View.OnClickListener  {
             Intent intent = new Intent(Page1.this,EntriesDisplay.class);
             startActivity(intent);
         }
-        //Gets intent from the Mood page activity
-       /* Intent intent = getIntent();
-        intent.getStringExtra("mood");
-        intent.getStringExtra("description");
-        mCardText.setText((CharSequence) intent);*/
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

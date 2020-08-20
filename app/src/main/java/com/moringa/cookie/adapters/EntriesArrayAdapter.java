@@ -28,7 +28,6 @@ public class EntriesArrayAdapter extends RecyclerView.Adapter<EntriesArrayAdapte
     }
 
 
-
     @NonNull
     @Override
     public EntriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -62,8 +61,8 @@ public class EntriesArrayAdapter extends RecyclerView.Adapter<EntriesArrayAdapte
 
         }
         public void bindEntries(Entries entries) {
-            mMoodDisplay.setText(entries.getMood().toString());
-            mDescriptionDisplay.setText(entries.getDescription().toString());
+           /* mMoodDisplay.setText(entries.getMood().toString());
+            mDescriptionDisplay.setText(entries.getDescription().toString());*/
         }
     }
 }

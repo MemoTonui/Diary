@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".UI.EntriesDisplay">
 
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Entries"
-        android:textSize="30dp"/>
+        android:layout_height="665dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/recyclerView"
+      />
 
 
 </RelativeLayout>

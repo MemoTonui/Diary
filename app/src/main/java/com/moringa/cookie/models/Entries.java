@@ -6,19 +6,11 @@ import java.util.List;
 public class Entries {
 
     String date;
-    List<String> mood = new ArrayList<>();
 
-    List<String> description = new ArrayList<>();
-
-    String pushId;
-
-    public Entries(String date, List<String> mood, List<String> description) {
+  /*  public Entries(String date) {
         this.date = date;
-        this.mood = mood;
-        this.description = description;
     }
-
-    public Entries() {
+    public Entries(){
 
     }
 
@@ -29,20 +21,43 @@ public class Entries {
     public void setDate(String date) {
         this.date = date;
     }
+}*/
+    String mood;
+    String description;
+    String pushId;
 
-    public List<String> getMood() {
+    public Entries(String date, String mood, String description) {
+        this.date = date;
+        this.mood = mood;
+        this.description = description;
+    }
+
+    public Entries() {
+
+    }
+
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getMood() {
         return mood;
     }
 
-    public void setMood(List<String> mood) {
+    public void setMood(String mood) {
         this.mood = mood;
     }
 
-    public List<String> getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(List<String> description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

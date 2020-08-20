@@ -8,12 +8,14 @@
     android:orientation="vertical">
 
 
-   <!-- <TextView
-        android:id="@+id/datepicker"
+   <TextView
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/calendarView2"
+        android:layout_alignParentTop="true"
+       android:fontFamily="@font/advent_pro"
         android:layout_marginTop="10dp"
+       android:padding="10dp"
         android:backgroundTint="@color/colorAccent" />-->
 
 
@@ -21,7 +23,7 @@
         android:id="@+id/calendarView2"
         android:layout_width="match_parent"
         android:layout_height="323dp"
-        android:layout_alignParentTop="true"
+
         android:layout_marginTop="28dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
